@@ -1,0 +1,26 @@
+<h1 id="title">Eat-da-Burger</h1>
+<img src="/assets/img/burger.png">
+<div id="burgerQueue"></div>
+<div id="titleContainer">
+	<div id="burgerToEat"> Eat a Burger</div>
+	<div id="EatenBurger"> Eaten Burgers</div>
+</div>
+<ul>
+	{{#each data}}
+		{{#unless this.devoured}}
+			<li>{{this.burger_name}}<span class="clickToEat">eat!</span></li>
+		{{/unless}}
+
+	{{/each}}
+</ul>
+<ul>
+	{{#each data}}
+		{{#if this.devoured}}
+			<li>{{this.burger_name}}</li>
+		{{/if}}
+	{{/each}}
+</ul>
+<form action="/new" method="post">
+	<input name="burger" type="textarea" placeholder="enter a new burger that you would like to eat">
+	<button id="newBurger" type="submit">Add This Burger!</button>
+</form>
